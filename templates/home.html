@@ -1,0 +1,31 @@
+{%extends "layout.html" %}
+
+{% block title %}{{user}}{% endblock %}
+
+{% block heading %}
+	<a class="navbar-brand" href="{{ url_for('home')}}">GP Book Review</a>
+{% endblock %}
+
+{% block nav %}
+	<div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+      	<li><a href="#">{{user}}<span class="glyphicon glyphicon-user"></span></a></li>
+        <li><a href="{{url_for('logout')}}">Logout <span class="glyphicon glyphicon-log-out"></span></a></li>		
+      </ul>
+    </div>
+{% endblock %}
+{% block body %}
+  	<div class="container-fluid text-center bg-grey">
+	   	<h4>Find your favourite books. We can help you to find your next favourite books. <span class="glyphicon glyphicon-star"></span></h4>
+	    <p>It is a social cataloging website that allows individuals to search freely its database of books and reviews. In this website users can also find reviews from other websit like goodread</p>
+		<div class="thumbnail">
+			<img src="{{ url_for('static', filename='book1.jpg') }}" alt="books" style="width: 98%; height: 98%;">
+			<p><strong>Books</strong></p>
+		</div>	        
+	</div>
+
+
+{% endblock %}
+	
+
+	

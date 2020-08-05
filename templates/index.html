@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>GP Book Review</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{{ url_for('index')}}">GP Book Review</a>
+      </div>
+      <div class="pull-right" style ="margin-top: 17px">
+        <form action="{{url_for('index')}}" method="post">
+          <input type="text" name="username" placeholder="Username" required>
+          <input type="password" name="password" placeholder="Password" required>
+          <button class="">Login</button>
+        </form>
+      </div>
+  </nav> 
+  <div class="container-fluid bg-1 text-center">
+    <h3>Who Am I?</h3>
+    <img src= "static/book4.jpg"  alt="Book" height="300px" width="300px" class="img-circle">
+    <h3>I'm a book lover</h3>
+  </div>
+  <div class="container-fluid bg-2 text-center">
+    <h3>New here? Create a free account! </h3>
+    <form class="form-horizontal" action="{{url_for('register')}}" method="POST" style="color:black">
+      <fieldset>
+        <div id="legend">
+          <legend style="color: #ffff">Register</legend>
+        </div>
+        <div class="control-group">
+          <!-- Username -->
+          <label class="control-label" for="username" style="color: #ffff">Username</label>
+          <div class="controls">
+            <input type="text" id="username" name="username" placeholder="" class="input-xlarge" required>
+          </div>
+        </div>
+     
+        <div class="control-group">
+          <!-- E-mail -->
+          <label class="control-label" for="email" style="color: #ffff">E-mail</label>
+          <div class="controls">
+            <input type="text" id="email" name="email" placeholder="" class="input-xlarge" required>
+          </div>
+        </div>
+     
+        <div class="control-group">
+          <!-- Password-->
+          <label class="control-label" for="password" style="color: #ffff"s>Password</label>
+          <div class="controls">
+            <input type="password"  name="password" placeholder="" class="input-xlarge" required>
+          </div>
+        </div>
+        <br>
+        <div class="control-group">
+          <!-- Button -->
+          <div class="controls">
+            <button class="btn btn-success">Register</button>
+          </div>
+          <br>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <footer class="container-fluid bg-4 text-center">
+     &copy; Copyright 2020 by <a href="#">gp</a>.
+  </footer>
+</body>
+</html> 

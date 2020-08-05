@@ -1,0 +1,38 @@
+{%extends "layout.html" %}
+
+{% block title %}{{user}}{% endblock %}
+
+{% block heading %}
+	<a class="navbar-brand" href="{{ url_for('home')}}">GP Book Review</a>
+{% endblock %}
+
+{% block nav %}
+	<div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{url_for('logout')}}">Logout <span class="glyphicon glyphicon-log-out"></span></a></li>		
+      </ul>
+    </div>
+{% endblock %}
+{% block body %}
+	
+  	<div class="container-fluid text-center bg-grey bg-5">
+	    <h3>Result of search.</h3>
+	    {% if books is none %}
+	    	<h3>Match not found</h3>
+
+	    {% else %}
+		    {% for book in books %}
+			    <a href="{{url_for('book', book_id=book.id)}}" style="color: black;">
+			    <div class="row text-center" 
+			    	style="background-color: #eeeeee; border-style: solid; border-color: #f8f8f8;">
+				    <h4>Title: {{ book.title }}</h4>
+				    <p>Isbn: {{ book.isbn }}</p>
+				    <p>Author:{{ book.author }}</p>
+				</div>
+				</a>
+			{% endfor %}
+		{% endif %}
+	</div>
+
+{% endblock %}
+	

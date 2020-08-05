@@ -1,0 +1,22 @@
+.navbar{
+	margin-bottom: 0px;
+}
+.jumbotron {
+  margin: 0px 0px;
+}
+
+.bg-1 {
+    background-color: #1abc9c; /* Green */
+    color: #ffffff;
+    margin-bottom: 0px;
+}
+.bg-4 {
+  background-color: #2f2f2f;
+  color: #ffffff;
+  margin-top: 0px;
+}
+
+.bg-5{
+	min-height: 550px;
+	background-color:#f8f8f8;
+}

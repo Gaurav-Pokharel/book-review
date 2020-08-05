@@ -1,0 +1,24 @@
+{%extends "layout.html" %}
+
+{% block title %}GP book review{% endblock %}
+
+{% block heading %}
+	<a class="navbar-brand" href="{{ url_for('index')}}">GP Book Review</a>
+{% endblock %}
+
+{% block body %}
+	{% if mg %}
+		<div class="container-fluid bg-1 text-center" style="margin: 0px 0px; padding: 107px 40px; color: red;" >
+			<h1>{{message}}</h1>
+		</div>
+	{% else %}
+		<div class="container-fluid bg-1 text-center" style="margin: 0px 0px; padding: 107px 40px;">
+			<h1>{{message}}</h1>
+		</div>
+	{% endif %}
+	<div class="container-fluid bg-1 text-center">
+	    <h3>Who Am I?</h3>
+	    <img src= "static/book4.jpg"  alt="Book" height="300px" width="300px" class="img-circle">
+	    <h3>I'm a book lover</h3>
+  	</div>
+{% endblock %}

@@ -1,0 +1,85 @@
+{%extends "layout.html" %}
+
+{% block title %}{{book.title}}{% endblock %}
+
+{% block heading %}
+	<a class="navbar-brand" href="{{ url_for('home')}}">GP Book Review</a>
+{% endblock %}
+
+{% block nav %}
+	<div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{url_for('logout')}}">Logout <span class="glyphicon glyphicon-log-out"></span></a></li>		
+      </ul>
+    </div>
+{% endblock %}
+
+{% block body %}
+
+  	<div class="container-fluid bg-grey" style="background-color: #f8f8f8">
+	    <h1>Title: {{book.title}}</h1>
+	    <h1>Author: {{book.author}}</h1>
+	    <h1>Isbn: {{book.isbn}}</h1>
+	    <!-- Good Read -->
+	    <hr>
+	    <hr>
+	    <h2>Review from good reads</h2>
+	    <p>Rating: {{gr_rating}}</p>
+	    <p>Number of ratings: {{gr_no_rating}}</p>
+	    <hr>
+	    <hr>
+	</div>
+
+	<!-- Comment Section -->
+	<div class="panel panel-default widget">
+            <div class="panel-heading">
+            	<!-- Add Comment -->
+				<form class="form" action="{{url_for('comment')}}" method="post">
+			    	<div class="input-group">
+					    <input type="text" class="form-control" size="50" name="comment" placeholder="Comment" required>
+					</div><br>
+					<div class="input-group">
+					    <input type="number" min="0" max="5" name="rating" placeholder="rating" required>
+					</div><br>
+					<input type="hidden" name="book_id" value="{{book.id}}">
+					<div class="input-group">
+					    <button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+			  	</form>
+			  	</div>
+			  	<br>
+			{% if comments != None %}
+            <div class="panel-body">
+            	<span class="glyphicon glyphicon-comment"></span>
+                <h3 class="panel-title">
+                    Comments
+                </h3>
+                {% for comment in comments %}
+                <ul class="list-group">
+                    <li class="list-group-item">
+
+                        <div class="row">
+                            <div class="col-xs-2 col-md-1">
+                                <img src="http://placehold.it/80" class="img-circle img-responsive" alt=""></div>
+                            <div class="col-xs-10 col-md-11">
+                                <div>
+                                    <a href="">
+                                        {{comment['username']}}</a>
+                                </div>
+                                <div class="comment-text">
+                                    {{comment['comment']}}
+                                </div>
+                                <div class="comment-text">
+                                    Rating: {{comment['rating']}}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+
+{% endblock %}
+	
